@@ -1,5 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import Artworks from "./components/Artworks";
 
 const apiAddress = `https://collectionapi.metmuseum.org/public/collection/v1/objects`;
 
@@ -13,7 +14,11 @@ function App() {
   useEffect(() => fetchArts(), []);
   console.log(art);
 
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Artworks />
+    </div>
+  );
 }
 
 export default App;
