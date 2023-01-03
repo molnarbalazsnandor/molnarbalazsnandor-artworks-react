@@ -1,8 +1,11 @@
 import React from 'react'
+import './loadingMask.css'
 
 function LoadingMask() {
   return (
-    <div>Loading...</div>
+    <div className="spinner-container">
+      <div className="loading-spinner"></div>
+    </div>
   )
 }
 
