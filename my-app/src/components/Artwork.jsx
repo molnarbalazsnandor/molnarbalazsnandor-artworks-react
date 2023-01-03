@@ -1,8 +1,13 @@
 import React from 'react'
 
-function Artwork() {
+function Artwork({artData}) {
   return (
-    <div>Artwork</div>
+    <div>
+      <h1>{artData.title}</h1>
+      <h2>{artData.creditline}</h2>
+      <h3>{artData.dated}</h3>
+      <img src={artData.primaryimageurl} alt={artData.title} />
+    </div>
   )
 }
 
