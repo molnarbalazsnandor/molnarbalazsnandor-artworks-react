@@ -5,10 +5,10 @@ function Artwork({artData}) {
   return (
     <Card variant="outlined" sx={{ minWidth: 275 }}>
     <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+      <Typography variant="h5" component="div">
       {artData.title}
       </Typography>
-      <Typography variant="h5" component="div">
+      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
       {artData.creditline}
       </Typography>
       <Typography sx={{ mb: 1.5 }} color="text.secondary">
