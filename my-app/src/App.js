@@ -1,12 +1,12 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 
-const apiAdress = `https://collectionapi.metmuseum.org/public/collection/v1/objects`;
+const apiAddress = `https://collectionapi.metmuseum.org/public/collection/v1/objects`;
 
 function App() {
   const [art, setArt] = useState([]);
   const fetchArts = () => {
-    fetch(apiAdress)
+    fetch(apiAddress)
       .then((res) => res.json())
       .then((data) => setArt(data));
   };
