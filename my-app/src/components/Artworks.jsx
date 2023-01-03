@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Artwork from './Artwork'
-import LoadingMask from "./LoadingMask";
+import {CircularProgress} from '@mui/material/'
 
 const apiKey = "9fcbde6d-b1de-4546-8974-eef81e8f90f4";
 let apiAddress = `https://api.harvardartmuseums.org/object?size=100&page=1?&apikey=${apiKey}`;
@@ -25,7 +25,7 @@ function Artworks() {
                 <Artwork key={index} artData={art} />
             ))
       ) : (
-        <LoadingMask />
+        <CircularProgress />
       )}
       
 
