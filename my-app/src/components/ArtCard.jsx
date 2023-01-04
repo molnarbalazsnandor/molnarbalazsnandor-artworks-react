@@ -1,6 +1,6 @@
 import { useEffect, useState }  from 'react'
 import { useNavigate, useParams } from "react-router-dom"
-import { Card, CardContent, Button,CardActions, Typography, CardMedia } from '@mui/material/'
+import { Card, CardContent, Button,CardActions, Typography, CardMedia, Box, CircularProgress } from '@mui/material/'
 import { blue, green, orange, purple, red } from '@mui/material/colors';
 
 function ArtCard() {
@@ -21,36 +21,40 @@ function ArtCard() {
   useEffect(() => console.log(artwork), [artwork]);
 
 
-  return (
-    <>
-         <Card sx={{ maxWidth: 400 }}>
-           <CardMedia
-             sx={{ height: 250 }}
-             image={artwork.primaryimageurl}
-             title={artwork.title}
-           />
-           <CardContent>
-             <Typography sx={{ fontSize:16, color:blue }} >
-             {artwork.displayname}
-             </Typography>
-             <Typography sx={{ fontSize:14, color:green }}>
-               {artwork.worktype}
-             </Typography>
-             <Typography sx={{ fontSize:14, color:purple }}>
-               {artwork.commentary}
-             </Typography>
-             <Typography sx={{ fontSize:14, color:red }}>
-               {artwork.yearmade}
-             </Typography>
-             <Typography sx={{ fontSize:16, color:orange }}>
-               {artwork.rank}
-             </Typography>
-           </CardContent>
-           <CardActions>
-           <Button size="medium" variant="outlined" backgroundColor="blue" color="white" onClick= {() =>{navigate("/")}}>Return</Button>
-           </CardActions>
-         </Card>
-     </>
+  return ( artwork != 0 ? (
+    <Card sx={{ maxWidth: 400 }}>
+      <CardMedia
+        sx={{ height: 250 }}
+        image={artwork.sequences[0].canvases[0].images[0]}
+        title={artwork.title}
+      />
+      <CardContent>
+        <Typography sx={{ fontSize:16/* , color:blue  */}} >
+        {artwork.label}
+        </Typography>
+        <Typography sx={{ fontSize:14/* , color:green  */}}>
+        {artwork.metadata[5].label}: {artwork.metadata[5].value}
+        </Typography>
+        <Typography sx={{ fontSize:14/* , color:purple */ }}>
+        {artwork.metadata[4].label}: {artwork.metadata[4].value}
+        </Typography>
+        <Typography sx={{ fontSize:14/* , color:red  */}}>
+          {artwork.metadata[0].label}: {artwork.metadata[0].value}
+        </Typography>
+        <Typography sx={{ fontSize:16/* , color:orange  */}}>
+          {artwork.rank}
+        </Typography>
+      </CardContent>
+      <CardActions>
+      <Button size="medium" variant="outlined" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
+      </CardActions>
+    </Card>
+  ):(
+    <Box sx={{ display: 'center', justifyContent: 'center', alignItems: 'center' }}>
+    <CircularProgress />
+  </Box>
+  )
+
   )
 }
 
