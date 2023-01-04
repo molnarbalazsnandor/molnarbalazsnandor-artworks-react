@@ -4,7 +4,7 @@ import { Card, CardActions, CardContent, Button, Typography, CardMedia } from '@
 function Artwork({ artData }) {
 
   const [isFavorite, setIsFavorite] = useState(false)
-  const [filter, setFilter]= useState("")
+  
 
   useEffect(function () {
     console.log(isFavorite)
