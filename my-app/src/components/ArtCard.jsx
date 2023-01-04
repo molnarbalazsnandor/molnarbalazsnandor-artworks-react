@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
+import Button from '@mui/material;
 
 function ArtCard(artData) {
 
@@ -14,7 +15,7 @@ function ArtCard(artData) {
     <h4>{artData.commentary}</h4>
     <h4>{artData.rank}</h4>
     <p><button onClick={() => navigate("/Artwork")}>Return</button>
-       </p>
+    </p>
     </div>
     
 

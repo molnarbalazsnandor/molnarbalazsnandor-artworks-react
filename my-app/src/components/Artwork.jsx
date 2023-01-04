@@ -30,7 +30,7 @@ function Artwork({ artData }) {
           sx={{ height: 480 }}
           image={artData.primaryimageurl}
           title={artData.title}
-        />
+        />   
         <CardActions>
           <Button size="small">Learn More</Button>
         </CardActions>
