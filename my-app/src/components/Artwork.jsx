@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Card, CardActions, CardContent, Button, Typography, CardMedia } from '@mui/material/'
+import { useNavigate } from "react-router-dom"
 
 function Artwork({ artData }) {
 
+  const navigate = useNavigate();
+
   const [isFavorite, setIsFavorite] = useState(false)
   useEffect(function () {
-    console.log(isFavorite)
   }, [isFavorite])
+
 
   return (
     <>
@@ -32,7 +35,7 @@ function Artwork({ artData }) {
           title={artData.title}
         />
         <CardActions>
-          <Button size="small">Learn More</Button>
+          <Button size="medium" onClick={() => navigate(`/art/${artData.id}`)}>See more details</Button>
         </CardActions>
       </Card>
     </>
