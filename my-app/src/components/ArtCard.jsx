@@ -1,6 +1,7 @@
 import { useEffect, useState }  from 'react'
 import { useNavigate, useParams } from "react-router-dom"
-import {Button, CardMedia} from '@mui/material'
+import { Card, CardContent, Button,CardActions, Typography, CardMedia } from '@mui/material/'
+import { blue, green, orange, purple, red } from '@mui/material/colors';
 
 function ArtCard() {
   let { id } = useParams();
@@ -25,28 +26,28 @@ function ArtCard() {
          <Card sx={{ maxWidth: 400 }}>
            <CardMedia
              sx={{ height: 250 }}
-             image={artData.primaryimageurl}
-             title={artData.title}
+             image={artwork.primaryimageurl}
+             title={artwork.title}
            />
            <CardContent>
              <Typography sx={{ fontSize:16, color:blue }} >
-             {artData.displayname}
+             {artwork.displayname}
              </Typography>
              <Typography sx={{ fontSize:14, color:green }}>
-               {artData.worktype}
+               {artwork.worktype}
              </Typography>
              <Typography sx={{ fontSize:14, color:purple }}>
-               {artData.commentary}
+               {artwork.commentary}
              </Typography>
              <Typography sx={{ fontSize:14, color:red }}>
-               {artData.yearmade}
+               {artwork.yearmade}
              </Typography>
              <Typography sx={{ fontSize:16, color:orange }}>
-               {artData.rank}
+               {artwork.rank}
              </Typography>
            </CardContent>
            <CardActions>
-           <Button size="medium" variant="outlined" backgroundColor="blue" color="white" onClick= {() =>{}}>Return</Button>
+           <Button size="medium" variant="outlined" backgroundColor="blue" color="white" onClick= {() =>{navigate("/")}}>Return</Button>
            </CardActions>
          </Card>
      </>
