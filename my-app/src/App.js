@@ -1,13 +1,19 @@
 import "./App.css";
 import React from "react";
-import Artworks from "./components/Artworks";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Favorites from "./components/Favorites";
+import Login from "./components/Login";
 
 function App() {
   return (
-    <div className="App">
-      <Artworks />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
