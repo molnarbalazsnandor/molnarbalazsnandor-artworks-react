@@ -8,9 +8,7 @@ import LoadingMask from "./LoadingMask";
 function Artworks({page}) {
   const [arts, setArts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  const apiKey = "9fcbde6d-b1de-4546-8974-eef81e8f90f4";
-  let apiAddress = `https://api.harvardartmuseums.org/object?size=50&page=${page}&apikey=9fcbde6d-b1de-4546-8974-eef81e8f90f4`;
+  const apiAddress = `https://api.harvardartmuseums.org/object?size=50&page=${page}&apikey=9fcbde6d-b1de-4546-8974-eef81e8f90f4`;
   
   const fetchArts = () => {
     setIsLoading(true)
@@ -32,7 +30,7 @@ function Artworks({page}) {
 
   return (
     <div className="artworks">
-      {isLoading ? <LoadingMask /> : arts !== 0 ? (
+      {isLoading ? <LoadingMask /> : arts != 0 ? (
         <Box>
           {arts.records
             .map((art, index) => (

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
-import {Button, CardMedia} from '@mui/material;
+import { useNavigate } from "react-router-dom"
+import {Button, CardMedia} from '@mui/material'
 
 function ArtCard(artData) {
 
