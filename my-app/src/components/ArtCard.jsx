@@ -22,10 +22,10 @@ function ArtCard() {
 
 
   return ( artwork != 0 ? (
-    <Card sx={{ maxWidth: 400 }}>
+    <Card sx={{ width: 1000 }}>
       <CardMedia
         sx={{ height: 250 }}
-        image={artwork.sequences[0].canvases[0].images[0]}
+        image={artwork.sequences[0].canvases[0].images[0].resource["@id"]}
         title={artwork.title}
       />
       <CardContent>
