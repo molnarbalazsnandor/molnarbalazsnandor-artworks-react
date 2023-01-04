@@ -29,7 +29,7 @@ function Artworks() {
 
   return (
     <div className="artworks">
-      {isLoading ? <LoadingMask /> : arts != 0 ? (
+      {isLoading ? <LoadingMask /> : arts !== 0 ? (
         <Box>
           {arts.records
             .map((art, index) => (
