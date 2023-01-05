@@ -5,7 +5,7 @@ import LoadingMask from "./LoadingMask";
 
 
 
-function Artworks({page}) {
+function Artworks({page, favorites, setFavorites}) {
   const [arts, setArts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [filter, setFilter]= useState("")
@@ -47,7 +47,8 @@ function Artworks({page}) {
         <Box>
           {arts.records
             .map((art, index) => (
-              <Artwork key={index} artData={art} />
+              <Artwork key={index} artData={art} favorites={favorites}
+              setFavorites={setFavorites}/>
             ))}
         </Box>
       ) : (
