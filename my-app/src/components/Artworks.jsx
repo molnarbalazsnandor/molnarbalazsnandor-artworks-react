@@ -8,6 +8,7 @@ import LoadingMask from "./LoadingMask";
 function Artworks({page}) {
   const [arts, setArts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [filter, setFilter]= useState("")
   const apiAddress = `https://api.harvardartmuseums.org/object?size=50&page=${page}&apikey=9fcbde6d-b1de-4546-8974-eef81e8f90f4`;
   
   const fetchArts = () => {
