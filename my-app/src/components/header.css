@@ -1,0 +1,12 @@
+.header{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 25px;
+}
+
+h1{
+    font-size: 38px;
+}
