@@ -37,10 +37,10 @@ function ArtCard() {
         {artwork.creditline}
         </Typography>
         <Typography sx={{ fontSize:14/* , color:purple */ }}>
-        {artwork.title}
+        {artwork.displayname}
         </Typography>
         <Typography sx={{ fontSize:14/* , color:red  */}}>
-        {artwork.title}
+        {artwork.commentary}
         </Typography>
         <Typography sx={{ fontSize:16/* , color:orange  */}}>
           {artwork.rank}
