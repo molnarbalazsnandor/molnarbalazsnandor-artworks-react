@@ -2,12 +2,10 @@ import { useEffect, useState }  from 'react'
 import { useNavigate, useParams } from "react-router-dom"
 import { Card, CardContent, Button,CardActions, Typography, CardMedia, Box, CircularProgress, IconButton } from '@mui/material/'
 import { Favorite, FavoriteBorder } from '@mui/icons-material/'
-import { blue, green, orange, purple, red } from '@mui/material/colors';
 
 function ArtCard({favorites, setFavorites}) {
   let { id } = useParams();
   const navigate = useNavigate();
-  const [isFavorite, setIsFavorite] = useState(false)
 
   const [artwork, setArtwork] = useState([]);
   const apiAddress = `https://api.harvardartmuseums.org/OBJECT/${id}?apikey=9fcbde6d-b1de-4546-8974-eef81e8f90f4`;
@@ -22,6 +20,15 @@ function ArtCard({favorites, setFavorites}) {
   };
   useEffect(() => fetchArt(), []);
   useEffect(() => console.log(artwork), [artwork]);
+
+  const handleFavButton = () => {
+    if(favorites.includes(Number(id))){
+      let deleteId = favorites.filter(mod => mod !==Number(id));
+      setFavorites([...deleteId]) 
+    }else {
+      setFavorites([...favorites, Number(id)])
+    }
+  }
 
   return ( artwork != 0 ? (
     <Card sx={{ width: 1000 }}>
@@ -49,12 +56,9 @@ function ArtCard({favorites, setFavorites}) {
       </CardContent>
       <CardActions>
       <Button size="medium" sx={{backgroundColor: "gray"}}variant="contained" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
-      <IconButton aria-label="add to favorites" onClick={() => {
-        setIsFavorite((oldValue) => !oldValue);
-        setFavorites([...favorites, Number(id)])
-      }
+      <IconButton aria-label="add to favorites" onClick={() => {handleFavButton()}
       }>
-        {isFavorite ? <Favorite/>: <FavoriteBorder/>}
+        {favorites.includes(Number(id)) ? <Favorite/>: <FavoriteBorder/>}
           
         </IconButton>
       </CardActions>

@@ -8,9 +8,18 @@ function Artwork({ artData, favorites, setFavorites }) {
 
   const navigate = useNavigate();
 
-  const [isFavorite, setIsFavorite] = useState(false)
+/*   const [isFavorite, setIsFavorite] = useState(false)
   useEffect(function () {
-  }, [isFavorite])
+  }, [isFavorite]) */
+
+  const handleFavButton = () => {
+    if(favorites.includes(artData.id)){
+      let deleteId = favorites.filter(mod => mod !==artData.id);
+      setFavorites([...deleteId]) 
+    }else {
+      setFavorites([...favorites, artData.id])
+    };
+  }
 
 
   return (
@@ -38,12 +47,9 @@ function Artwork({ artData, favorites, setFavorites }) {
         />
         <CardActions>
           <Button sx={{backgroundColor: "gray"}}size="medium" variant="contained" onClick={() => navigate(`/art/${artData.id}`)}>See more details</Button>
-          <IconButton aria-label="add to favorites" onClick={() => {
-        setIsFavorite((oldValue) => !oldValue);
-        setFavorites([...favorites, artData.id])
-      }
+          <IconButton aria-label="add to favorites" onClick={() => {handleFavButton()}
       }>
-        {isFavorite ? <Favorite/>: <FavoriteBorder/>}
+        {favorites.includes(artData.id) ? <Favorite/>: <FavoriteBorder/>}
           
         </IconButton>
         </CardActions>
