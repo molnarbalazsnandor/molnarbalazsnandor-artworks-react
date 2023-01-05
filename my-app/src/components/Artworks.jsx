@@ -31,6 +31,7 @@ function Artworks({page}) {
 
   return (
     <div className="artworks">
+      <input type="text" placeholder="search" value={filter} onChange={event => {setFilter(event.target.value)}}/>
       {isLoading ? <LoadingMask /> : arts != 0 ? (
         <Box>
           {arts.records
