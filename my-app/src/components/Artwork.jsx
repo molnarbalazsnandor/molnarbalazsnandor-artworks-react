@@ -37,7 +37,7 @@ function Artwork({ artData, favorites, setFavorites }) {
           title={artData.title}
         />
         <CardActions>
-          <Button size="medium" onClick={() => navigate(`/art/${artData.id}`)}>See more details</Button>
+          <Button sx={{backgroundColor: "gray"}}size="medium" variant="contained" onClick={() => navigate(`/art/${artData.id}`)}>See more details</Button>
           <IconButton aria-label="add to favorites" onClick={() => {
         setIsFavorite((oldValue) => !oldValue);
         setFavorites([...favorites, artData.id])

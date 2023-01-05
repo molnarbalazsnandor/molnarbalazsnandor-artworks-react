@@ -18,7 +18,7 @@ function Favorites({favorites, setFavorites}) {
               No favorites selected!
             </Box>
             )}
-            <Button sx={{ display: 'center', justifyContent: 'center', alignItems: 'center' }} size="large" variant="contained" onClick={() => {localStorage.clear(); window.location.reload(); }
+            <Button sx={{ display: 'center', justifyContent: 'center', alignItems: 'center', backgroundColor: "gray"}} size="large" variant="contained" onClick={() => {localStorage.clear(); window.location.reload(); }
           }>Delete favorites</Button>
         </Box>
          </Layout>

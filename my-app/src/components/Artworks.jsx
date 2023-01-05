@@ -33,7 +33,7 @@ function Artworks({page, favorites, setFavorites}) {
       fetch(apiSearch)
       .then((res) => res.json())
       .then((data) => {setArts(data)});
-    },1500)
+    },2000)
   };
 
   useEffect(() => fetchFilteredArts(), [filter]);

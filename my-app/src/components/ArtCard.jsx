@@ -48,7 +48,7 @@ function ArtCard({favorites, setFavorites}) {
         </Typography>
       </CardContent>
       <CardActions>
-      <Button size="medium" variant="outlined" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
+      <Button size="medium" sx={{backgroundColor: "gray"}}variant="contained" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
       <IconButton aria-label="add to favorites" onClick={() => {
         setIsFavorite((oldValue) => !oldValue);
         setFavorites([...favorites, Number(id)])
