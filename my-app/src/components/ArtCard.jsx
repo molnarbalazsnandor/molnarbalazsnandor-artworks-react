@@ -8,7 +8,8 @@ function ArtCard() {
   const navigate = useNavigate();
 
   const [artwork, setArtwork] = useState([]);
-  const apiAddress = `https://iiif.harvardartmuseums.org/manifests/object/${id}`;
+  const apiAddress = `https://api.harvardartmuseums.org/OBJECT/${id}?apikey=9fcbde6d-b1de-4546-8974-eef81e8f90f4`;
+
 
   const fetchArt = () => {
     fetch(apiAddress)
@@ -25,21 +26,21 @@ function ArtCard() {
     <Card sx={{ width: 1000 }}>
       <CardMedia
         sx={{ height: 700 }}
-        image={artwork.sequences[0].canvases[0].images[0].resource["@id"]}
+        image={artwork.images[0].baseimageurl}
         title={artwork.title}
       />
       <CardContent>
         <Typography sx={{ fontSize:16/* , color:blue  */}} >
-        {artwork.label}
+        {artwork.title}
         </Typography>
         <Typography sx={{ fontSize:14/* , color:green  */}}>
-        {artwork.metadata[5].label}: {artwork.metadata[5].value}
+        {artwork.creditline}
         </Typography>
         <Typography sx={{ fontSize:14/* , color:purple */ }}>
-        {artwork.metadata[4].label}: {artwork.metadata[4].value}
+        {artwork.title}
         </Typography>
         <Typography sx={{ fontSize:14/* , color:red  */}}>
-          {artwork.metadata[0].label}: {artwork.metadata[0].value}
+        {artwork.title}
         </Typography>
         <Typography sx={{ fontSize:16/* , color:orange  */}}>
           {artwork.rank}
