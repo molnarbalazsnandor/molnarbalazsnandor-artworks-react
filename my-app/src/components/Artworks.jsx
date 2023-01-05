@@ -34,7 +34,7 @@ function Artworks({page}) {
       <input type="text" placeholder="search" value={filter} onChange={event => {setFilter(event.target.value)}}/>
       {isLoading ? <LoadingMask /> : arts != 0 ? (
         <Box>
-          {arts.records
+          {arts.records.filter((art)=>art.title.toLowerCase().includes(filter.toLowerCase()))
             .map((art, index) => (
               <Artwork key={index} artData={art} />
             ))}
