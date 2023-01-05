@@ -30,7 +30,7 @@ function Artwork({ artData }) {
           </Typography>
         </CardContent>
         <CardMedia
-          sx={{ height: 480 }}
+          sx={{ height: 480, maxWidth: 1028 }}
           image={artData.primaryimageurl}
           title={artData.title}
         />
