@@ -1,7 +1,21 @@
-import React from 'react'
-import { Card, CardActions, CardContent, Box, Typography, CardMedia, CircularProgress } from '@mui/material/'
+import React, {useState, useEffect} from 'react'
+import { Card, CardContent, Box, Typography, CardMedia, CircularProgress } from '@mui/material/'
 
-function Favorite({artwork}) {
+function Favorite({favoriteID}) {
+  const [artwork, setArtwork] = useState([]);
+  const apiAddress = `https://api.harvardartmuseums.org/OBJECT/${favoriteID}?apikey=9fcbde6d-b1de-4546-8974-eef81e8f90f4`
+
+
+  const fetchFavoriteArtwork = () => {
+      fetch(apiAddress)
+        .then((res) => res.json())
+        .then((data) => {
+          setArtwork(data);
+          });
+  };
+
+  useEffect(() => fetchFavoriteArtwork(), [])
+
   return ( artwork != 0 ? (
     <Card sx={{ width: 1000 }}>
       <CardMedia
