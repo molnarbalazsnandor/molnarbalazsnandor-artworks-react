@@ -1,0 +1,22 @@
+.detailsCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+   
+}
+body{
+    background-image: url('/public/pic/paper.jpg');
+    width: 100%;
+    height: 100vh;
+   
+}
+
+.MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-bbgsq2-MuiPaper-root-MuiCard-root{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    
+   
+}

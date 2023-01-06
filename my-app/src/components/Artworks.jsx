@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Artwork from './Artwork'
 import { Box, CircularProgress} from '@mui/material/'
 import LoadingMask from "./LoadingMask";
-
+import './DetailsCard.css'
 
 
 function Artworks({page}) {

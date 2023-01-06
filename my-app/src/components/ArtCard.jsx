@@ -2,6 +2,8 @@ import { useEffect, useState }  from 'react'
 import { useNavigate, useParams } from "react-router-dom"
 import { Card, CardContent, Button,CardActions, Typography, CardMedia, Box, CircularProgress } from '@mui/material/'
 import { blue, green, orange, purple, red } from '@mui/material/colors';
+import './DetailsCard.css';
+
 
 function ArtCard() {
   let { id } = useParams();
@@ -23,33 +25,53 @@ function ArtCard() {
 
 
   return ( artwork != 0 ? (
-    <Card sx={{ width: 1000 }}>
+    <div className='detailsCard'>
+    <Card sx={{ 
+      width:600
+      
+
+      
+     }}>
       <CardMedia
-        sx={{ height: 700 }}
+        sx={{ height: 250 }}
         image={artwork.images[0].baseimageurl}
-        title={artwork.title}
+        
+        
       />
+
+
       <CardContent>
-        <Typography sx={{ fontSize:16/* , color:blue  */}} >
+        <Typography sx={{ fontSize:20, fontWeight: 700 }} >
         {artwork.title}
         </Typography>
-        <Typography sx={{ fontSize:14/* , color:green  */}}>
-        {artwork.creditline}
+
+        <Typography sx={{ fontSize:16}}>
+        Creditline: {artwork.creditline}
         </Typography>
-        <Typography sx={{ fontSize:14/* , color:purple */ }}>
-        {artwork.displayname}
+
+        <Typography sx={{ fontSize:16/* , color:purple */ }}>
+        Accessionyear: {artwork.accessionyear}
         </Typography>
-        <Typography sx={{ fontSize:14/* , color:red  */}}>
-        {artwork.commentary}
+        
+        <Typography sx={{ fontSize:16/* , color:red  */}}>
+        Commentary: {artwork.commentary}
         </Typography>
+
         <Typography sx={{ fontSize:16/* , color:orange  */}}>
-          {artwork.rank}
+        Classification: {artwork.classification}
         </Typography>
+
+        <Typography sx={{ fontSize:16/* , color:orange  */}}>
+        Period: {artwork.period}
+        </Typography>
+
+
       </CardContent>
       <CardActions>
       <Button size="medium" variant="outlined" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
       </CardActions>
     </Card>
+    </div>
   ):(
     <Box sx={{ display: 'center', justifyContent: 'center', alignItems: 'center' }}>
     <CircularProgress />
