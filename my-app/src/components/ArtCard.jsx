@@ -1,11 +1,11 @@
 import { useEffect, useState }  from 'react'
 import { useNavigate, useParams } from "react-router-dom"
-import { Card, CardContent, Button,CardActions, Typography, CardMedia, Box, CircularProgress } from '@mui/material/'
-import { blue, green, orange, purple, red } from '@mui/material/colors';
+import { Card, CardContent, Button,CardActions, Typography, CardMedia, Box, CircularProgress, IconButton } from '@mui/material/'
+import { Favorite, FavoriteBorder } from '@mui/icons-material/'
 import './DetailsCard.css';
 
 
-function ArtCard() {
+function ArtCard({favorites, setFavorites}) {
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -23,6 +23,14 @@ function ArtCard() {
   useEffect(() => fetchArt(), []);
   useEffect(() => console.log(artwork), [artwork]);
 
+  const handleFavButton = () => {
+    if(favorites.includes(Number(id))){
+      let deleteId = favorites.filter(mod => mod !==Number(id));
+      setFavorites([...deleteId]) 
+    }else {
+      setFavorites([...favorites, Number(id)])
+    }
+  }
 
   return ( artwork != 0 ? (
     <div className='detailsCard'>
@@ -68,7 +76,12 @@ function ArtCard() {
 
       </CardContent>
       <CardActions>
-      <Button size="medium" variant="outlined" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
+      <Button size="medium" sx={{backgroundColor: "gray"}}variant="contained" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
+      <IconButton aria-label="add to favorites" onClick={() => {handleFavButton()}
+      }>
+        {favorites.includes(Number(id)) ? <Favorite/>: <FavoriteBorder/>}
+          
+        </IconButton>
       </CardActions>
     </Card>
     </div>

@@ -5,7 +5,7 @@ import LoadingMask from "./LoadingMask";
 import './DetailsCard.css'
 
 
-function Artworks({page}) {
+function Artworks({page, favorites, setFavorites}) {
   const [arts, setArts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [filter, setFilter]= useState("")
@@ -33,7 +33,7 @@ function Artworks({page}) {
       fetch(apiSearch)
       .then((res) => res.json())
       .then((data) => {setArts(data)});
-    },1500)
+    },2000)
   };
 
   useEffect(() => fetchFilteredArts(), [filter]);
@@ -47,7 +47,8 @@ function Artworks({page}) {
         <Box>
           {arts.records
             .map((art, index) => (
-              <Artwork key={index} artData={art} />
+              <Artwork key={index} artData={art} favorites={favorites}
+              setFavorites={setFavorites}/>
             ))}
         </Box>
       ) : (
