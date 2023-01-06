@@ -28,7 +28,7 @@ function Artwork({ artData, favorites, setFavorites }) {
         setIsFavorite((oldValue) => !oldValue)
       }
       } src={isFavorite ? "https://www.psdgraphics.com/wp-content/uploads/2022/01/heart-png-768x589.png" : "https://www.freeiconspng.com/thumbs/star-icon/blue-star-icon-14.png"} alt="star" className="favorite" width="50px" /> */}
-      <Card variant="outlined" sx={{ minWidth: 275 }}>
+      <Card class="Tibi" variant="outlined" sx={{ minWidth: 275 }}>
         <CardContent>
           <Typography variant="h5" component="div">
             {artData.title}
