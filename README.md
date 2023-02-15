@@ -11,7 +11,7 @@ They also worked on the design of the page, which turned out to be rather a func
 
 I must also add that all of their separate works were later either patched or overwritten by me, as they either didn't reach a functional state, or were not compatible with the overall code and design.
 
-The rest of the project was done by me: the components and their routing, the fetching of data by each component, the MUI elements and MUI cards of the artworks, the rendering conditions, and the "favorites" function.
+The rest of the project was done by me: the components and their routing, the fetching of data by each component, the MUI elements (loading animation, buttons, pagination) and MUI cards of the artworks, the rendering conditions, and the "favorites" function.
 
 As the course was severely behind schedule at this point, the classes about authentication were skipped, therefore the favorites function was local storage based.
 
