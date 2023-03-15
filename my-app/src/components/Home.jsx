@@ -10,7 +10,7 @@ function Home({favorites, setFavorites}) {
   return (
     <Layout>
       <Box>
-      <Artworks page={page} 
+      <Artworks page={page} setPage={setPage}
               pageCount={pageCount} setPageCount={setPageCount}
               favorites={favorites} setFavorites={setFavorites}
               />

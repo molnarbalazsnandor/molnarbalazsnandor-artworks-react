@@ -5,7 +5,9 @@ import './header.css'
 function Header() {
   return (
     <div className="header">
-      <h1>Harvard <br></br> Art Museums</h1>
+      <Link to="/">
+        <img class= "HarvardArtLogo" src="/../pic/HarvardArtLogo.png" alt="HarvardArtLogo"/>
+      </Link>
       <Link to="/">Home</Link>
       <Link to="/favorites">Favorites</Link>
       <Link to="/login">Login</Link>

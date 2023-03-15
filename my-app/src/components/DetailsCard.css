@@ -4,11 +4,11 @@
   justify-content: center;
   margin-top: 150px;
 }
-body {
+/* body {
   background-image: url("/public/pic/paper.jpg");
   width: 100%;
   height: 100vh;
-}
+} */
 
 .MuiPaper-root
   MuiPaper-outlined

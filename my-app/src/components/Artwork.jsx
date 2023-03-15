@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Card, CardActions, CardContent, Button, Typography, CardMedia, IconButton } from '@mui/material/'
+import { Box, ImageList, ImageListItem, Button, ImageListItemBar, IconButton } from '@mui/material/'
 import { Favorite, FavoriteBorder } from '@mui/icons-material/'
 import { useNavigate } from "react-router-dom"
 
@@ -24,10 +24,38 @@ function Artwork({ artData, favorites, setFavorites }) {
 
   return (
     <>
-{/*       <img onClick={() => {
+
+          {/* tipp:itt kéne map-elni!  https://www.youtube.com/watch?v=D25bffKDNkw*/}
+            <ImageListItem key={artData.primaryimageurl} onClick={() => navigate(`/art/${artData.id}`)}>
+              <img
+                src={`${artData.primaryimageurl}?w=164&h=164&fit=crop&auto=format&dpr=2 `}
+                srcSet={`${artData.primaryimageurl}`}
+                alt={artData.title}
+                loading="lazy"
+              />
+              <ImageListItemBar position="below" title={artData.objectnumber} />
+              <ImageListItemBar position="below" title={artData.department} />
+              <ImageListItemBar position="below" title={artData.title} />
+              <ImageListItemBar position="below" title={artData.classification} />
+            </ImageListItem>
+{/*              <Button sx={{backgroundColor: "gray"}}size="medium" variant="contained" onClick={() => navigate(`/art/${artData.id}`)}>See more details</Button> */}
+          <IconButton aria-label="add to favorites" onClick={() => {handleFavButton()}
+      }>
+        {favorites.includes(artData.id) ? <Favorite/>: <FavoriteBorder/>}
+          
+        </IconButton>
+
+    </>
+  )
+}
+
+export default Artwork
+
+/* 
+      <img onClick={() => {
         setIsFavorite((oldValue) => !oldValue)
       }
-      } src={isFavorite ? "https://www.psdgraphics.com/wp-content/uploads/2022/01/heart-png-768x589.png" : "https://www.freeiconspng.com/thumbs/star-icon/blue-star-icon-14.png"} alt="star" className="favorite" width="50px" /> */}
+      } src={isFavorite ? "https://www.psdgraphics.com/wp-content/uploads/2022/01/heart-png-768x589.png" : "https://www.freeiconspng.com/thumbs/star-icon/blue-star-icon-14.png"} alt="star" className="favorite" width="50px" /> 
       <Card class="Tibi" variant="outlined" sx={{ minWidth: 275 }}>
         <CardContent>
           <Typography variant="h5" component="div">
@@ -54,8 +82,4 @@ function Artwork({ artData, favorites, setFavorites }) {
         </IconButton>
         </CardActions>
       </Card>
-    </>
-  )
-}
-
-export default Artwork
+*/

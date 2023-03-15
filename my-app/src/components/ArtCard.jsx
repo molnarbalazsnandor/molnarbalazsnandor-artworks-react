@@ -10,7 +10,7 @@ function ArtCard({favorites, setFavorites}) {
   const navigate = useNavigate();
 
   const [artwork, setArtwork] = useState([]);
-  const apiAddress = `https://api.harvardartmuseums.org/OBJECT/${id}?apikey=9fcbde6d-b1de-4546-8974-eef81e8f90f4`;
+  const apiAddress = `https://api.harvardartmuseums.org/OBJECT/${id}?apikey=73553f4b-8036-4627-98e1-b61ab27263f0`;
 
 
   const fetchArt = () => {
