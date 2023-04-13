@@ -5,10 +5,12 @@ import Home from "./components/Home";
 import Favorites from "./components/Favorites";
 import Login from "./components/Login";
 import ArtCard from "./components/ArtCard";
+import LoginDialog from "./components/LoginDialog";
 
 function App() {
   const [favorites, setFavorites] = useState([]);
 
+  //favorites local storage
   useEffect(() => {
     const favoritesItem = JSON.parse(localStorage.getItem("favorites"));
     if (favoritesItem) {
@@ -23,6 +25,9 @@ function App() {
       localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   }, [favorites]);
+
+  //login dialog
+  const [openLogin, setOpenLogin] = useState(false);
 
   return (
     <BrowserRouter>
@@ -45,6 +50,7 @@ function App() {
           }
         ></Route>
       </Routes>
+      <LoginDialog openLogin={openLogin} setOpenLogin={setOpenLogin} />
     </BrowserRouter>
   );
 }

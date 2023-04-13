@@ -33,10 +33,14 @@ function Artwork({ artData, favorites, setFavorites }) {
                 alt={artData.title}
                 loading="lazy"
               />
-              <ImageListItemBar position="below" title={artData.objectnumber} />
-              <ImageListItemBar position="below" title={artData.department} />
+              <ImageListItemBar 
+              sx={{ fontSize:18, color:'gray' }}
+              position="below" title={artData.objectnumber} />
+              <ImageListItemBar sx={{ fontSize:20, color:'gray' }}
+              position="below" title={artData.department} />
               <ImageListItemBar position="below" title={artData.title} />
-              <ImageListItemBar position="below" title={artData.classification} />
+              <ImageListItemBar sx={{ fontSize:20, color:'gray' }}
+              position="below" title={artData.classification} />
             </ImageListItem>
 {/*              <Button sx={{backgroundColor: "gray"}}size="medium" variant="contained" onClick={() => navigate(`/art/${artData.id}`)}>See more details</Button> */}
           <IconButton aria-label="add to favorites" onClick={() => {handleFavButton()}

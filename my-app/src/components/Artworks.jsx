@@ -36,7 +36,7 @@ function Artworks({page, pageCount, setPageCount, favorites, setFavorites}) {
     fetchFilteredArts()
   }, [filter]);
   useEffect(() => console.log(arts, pageCount), [filter]);
-
+  
 
   return (
     <div className="artworks">
