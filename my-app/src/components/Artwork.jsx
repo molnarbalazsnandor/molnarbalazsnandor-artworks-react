@@ -4,7 +4,7 @@ import { Favorite, FavoriteBorder } from '@mui/icons-material/'
 import { useNavigate } from "react-router-dom"
 
 
-function Artwork({ artData, favorites, setFavorites }) {
+function Artwork({ artData, favorites, setFavorites, openLogin, setOpenLogin, loggedIn}) {
 
   const navigate = useNavigate();
 
@@ -21,10 +21,8 @@ function Artwork({ artData, favorites, setFavorites }) {
     };
   }
 
-
   return (
     <>
-
           {/* tipp:itt kéne map-elni!  https://www.youtube.com/watch?v=D25bffKDNkw*/}
             <ImageListItem key={artData.primaryimageurl} onClick={() => navigate(`/art/${artData.id}`)}>
               <img
@@ -43,11 +41,11 @@ function Artwork({ artData, favorites, setFavorites }) {
               position="below" title={artData.classification} />
             </ImageListItem>
 {/*              <Button sx={{backgroundColor: "gray"}}size="medium" variant="contained" onClick={() => navigate(`/art/${artData.id}`)}>See more details</Button> */}
-          <IconButton aria-label="add to favorites" onClick={() => {handleFavButton()}
-      }>
-        {favorites.includes(artData.id) ? <Favorite/>: <FavoriteBorder/>}
-          
-        </IconButton>
+          <IconButton aria-label="add to favorites" onClick={() => {loggedIn ? handleFavButton(): setOpenLogin(true)}
+          }>
+            {favorites.includes(artData.id) ? <Favorite/>: <FavoriteBorder/>}
+              
+          </IconButton>
 
     </>
   )

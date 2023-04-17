@@ -5,10 +5,13 @@ import Home from "./components/Home";
 import Favorites from "./components/Favorites";
 import Login from "./components/Login";
 import ArtCard from "./components/ArtCard";
-import LoginDialog from "./components/LoginDialog";
 
 function App() {
   const [favorites, setFavorites] = useState([]);
+
+  //login dialog
+  const [openLogin, setOpenLogin] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   //favorites local storage
   useEffect(() => {
@@ -26,15 +29,20 @@ function App() {
     }
   }, [favorites]);
 
-  //login dialog
-  const [openLogin, setOpenLogin] = useState(false);
-
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          element={<Home favorites={favorites} setFavorites={setFavorites} />}
+          element={
+            <Home
+              favorites={favorites}
+              setFavorites={setFavorites}
+              openLogin={openLogin}
+              setOpenLogin={setOpenLogin}
+              loggedIn={loggedIn}
+            />
+          }
         />
         <Route
           path="/favorites"
@@ -42,15 +50,29 @@ function App() {
             <Favorites favorites={favorites} setFavorites={setFavorites} />
           }
         />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={
+            <Login
+              openLogin={openLogin}
+              setOpenLogin={setOpenLogin}
+              loggedIn={loggedIn}
+            />
+          }
+        />
         <Route
           path="/art/:id"
           element={
-            <ArtCard favorites={favorites} setFavorites={setFavorites} />
+            <ArtCard
+              favorites={favorites}
+              setFavorites={setFavorites}
+              openLogin={openLogin}
+              setOpenLogin={setOpenLogin}
+              loggedIn={loggedIn}
+            />
           }
         ></Route>
       </Routes>
-      <LoginDialog openLogin={openLogin} setOpenLogin={setOpenLogin} />
     </BrowserRouter>
   );
 }

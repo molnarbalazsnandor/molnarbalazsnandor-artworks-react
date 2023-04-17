@@ -5,7 +5,7 @@ import { Favorite, FavoriteBorder } from '@mui/icons-material/'
 import './DetailsCard.css';
 
 
-function ArtCard({favorites, setFavorites}) {
+function ArtCard({favorites, setFavorites,openLogin, setOpenLogin}) {
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -76,11 +76,11 @@ function ArtCard({favorites, setFavorites}) {
 
       </CardContent>
       <CardActions>
-      <Button size="medium" sx={{backgroundColor: "gray"}}variant="contained" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
-      <IconButton aria-label="add to favorites" onClick={() => {handleFavButton()}
-      }>
-        {favorites.includes(Number(id)) ? <Favorite/>: <FavoriteBorder/>}
-          
+        <Button size="medium" sx={{backgroundColor: "gray"}}variant="contained" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
+        <IconButton aria-label="add to favorites" onClick={() => {handleFavButton()}
+        }>
+          {favorites.includes(Number(id)) ? <Favorite/>: <FavoriteBorder/>}
+            
         </IconButton>
       </CardActions>
     </Card>
