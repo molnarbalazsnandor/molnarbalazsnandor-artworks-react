@@ -4,7 +4,6 @@ import { Button, Dialog, DialogContent, DialogTitle, DialogContentText, TextFiel
 import {Link} from "react-router-dom"
 
 function LoginDialog({openLogin,setOpenLogin}) {
-  const handleLoginButton = () => {setOpenLogin(false)};
   return (
     <div>
       <Dialog open={openLogin}>
@@ -15,8 +14,8 @@ function LoginDialog({openLogin,setOpenLogin}) {
             </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Link to="/login"><Button onClick={() => {handleLoginButton()}}>Login</Button></Link> 
-          <Button onClick={() => {handleLoginButton()}}>OK</Button> 
+          <Link to="/login"><Button onClick={() => {setOpenLogin(false)}}>Login</Button></Link> 
+          <Button onClick={() => {setOpenLogin(false)}}>OK</Button> 
         </DialogActions>
       </Dialog>
     </div>

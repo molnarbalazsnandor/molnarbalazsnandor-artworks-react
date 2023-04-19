@@ -4,7 +4,7 @@ import { Box, CircularProgress, ImageList} from '@mui/material/'
 import './DetailsCard.css'
 
 
-function Artworks({page, pageCount, setPageCount, favorites, setFavorites, openLogin, setOpenLogin, loggedIn}) {
+function Artworks({page, pageCount, setPageCount, favorites, setFavorites, openLogin, setOpenLogin}) {
   const [arts, setArts] = useState([]);
   const [filter, setFilter]= useState("");
 /*   const apiAddress = `https://api.harvardartmuseums.org/object?size=50&page=${page}&apikey=9fcbde6d-b1de-4546-8974-eef81e8f90f4`; */
@@ -50,8 +50,7 @@ function Artworks({page, pageCount, setPageCount, favorites, setFavorites, openL
               favorites={favorites}
               setFavorites={setFavorites}
               openLogin={openLogin}
-              setOpenLogin={setOpenLogin}
-              loggedIn={loggedIn}/>
+              setOpenLogin={setOpenLogin}/>
             ))}
                 </ImageList>
       </Box>

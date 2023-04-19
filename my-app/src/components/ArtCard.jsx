@@ -3,12 +3,14 @@ import { useNavigate, useParams } from "react-router-dom"
 import { Card, CardContent, Button,CardActions, Typography, CardMedia, Box, CircularProgress, IconButton } from '@mui/material/'
 import { Favorite, FavoriteBorder } from '@mui/icons-material/'
 import './DetailsCard.css';
-import LoginDialog from './LoginDialog';
+import { UserAuth } from '../context/AuthContext'
 
 
-function ArtCard({favorites, setFavorites,openLogin, setOpenLogin, loggedIn}) {
+
+function ArtCard({favorites, setFavorites,openLogin, setOpenLogin}) {
   let { id } = useParams();
   const navigate = useNavigate();
+  const {user, logOut} = UserAuth();
 
   const [artwork, setArtwork] = useState([]);
   const apiAddress = `https://api.harvardartmuseums.org/OBJECT/${id}?apikey=73553f4b-8036-4627-98e1-b61ab27263f0`;
@@ -71,7 +73,7 @@ function ArtCard({favorites, setFavorites,openLogin, setOpenLogin, loggedIn}) {
         </CardContent>
         <CardActions>
           <Button size="medium" sx={{backgroundColor: "gray"}}variant="contained" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
-          <IconButton aria-label="add to favorites" onClick={() => {loggedIn ? handleFavButton(): setOpenLogin(true)}
+          <IconButton aria-label="add to favorites" onClick={() => {user?.displayName ? handleFavButton(): setOpenLogin(true)}
           }>
             {favorites.includes(Number(id)) ? <Favorite/>: <FavoriteBorder/>}
               
@@ -79,7 +81,6 @@ function ArtCard({favorites, setFavorites,openLogin, setOpenLogin, loggedIn}) {
         </CardActions>
       </Card>
       </div>
-      <LoginDialog openLogin={openLogin} setOpenLogin={setOpenLogin} />
     </>
   ):(
     <Box sx={{ display: 'center', justifyContent: 'center', alignItems: 'center' }}>

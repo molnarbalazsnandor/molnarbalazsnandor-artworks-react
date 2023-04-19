@@ -1,4 +1,19 @@
-import firebase from "firebase/compat/app";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC-Z2He-U_v79Mnnzw_vQ_p1gy0cks69DU",
+  authDomain: "mbn-harvard-art-museums.firebaseapp.com",
+  projectId: "mbn-harvard-art-museums",
+  storageBucket: "mbn-harvard-art-museums.appspot.com",
+  messagingSenderId: "610841695111",
+  appId: "1:610841695111:web:527d1da289d6b0e673f922",
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+
+/* import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
 // Your web app's Firebase configuration
@@ -34,11 +49,9 @@ export const handleSignOutButton = () => {
   auth
     .signOut()
     .then(() => {
-      // Sign-out successful.
       console.log("Signed out successfully!");
     })
     .catch((error) => {
-      // An error happened.
       console.log(error);
     });
-};
+}; */
