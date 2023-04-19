@@ -14,7 +14,7 @@ function Artworks({page, pageCount, setPageCount, favorites, setFavorites, openL
 
   useEffect(() => {
     const fetchArts = async () => {
-      const data = await fetch(apiSearch);
+      const data = await fetch(apiSearch, );
       const json = await data.json();
       setArts(json);
       setPageCount(json.info.pages)

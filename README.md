@@ -18,6 +18,7 @@ As the course was severely behind schedule at this point, the classes about auth
 Original Readme:
 Used packages:
 
-- npm install react-router-dom
-- npm install @mui/material
-- npm install @mui/icons-material
+- react-router-dom
+- @mui/material
+- @mui/icons-material
+- react-google-button

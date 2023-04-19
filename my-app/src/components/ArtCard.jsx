@@ -3,9 +3,10 @@ import { useNavigate, useParams } from "react-router-dom"
 import { Card, CardContent, Button,CardActions, Typography, CardMedia, Box, CircularProgress, IconButton } from '@mui/material/'
 import { Favorite, FavoriteBorder } from '@mui/icons-material/'
 import './DetailsCard.css';
+import LoginDialog from './LoginDialog';
 
 
-function ArtCard({favorites, setFavorites,openLogin, setOpenLogin}) {
+function ArtCard({favorites, setFavorites,openLogin, setOpenLogin, loggedIn}) {
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -33,58 +34,53 @@ function ArtCard({favorites, setFavorites,openLogin, setOpenLogin}) {
   }
 
   return ( artwork != 0 ? (
-    <div className='detailsCard'>
-    <Card sx={{ 
-      width:600
-      
+    <>
+      <div className='detailsCard'>
+      <Card sx={{ 
+        width:600
+      }}>
+        <CardMedia
+          sx={{ height: 250 }}
+          image={artwork.images[0].baseimageurl}
+        />
+        <CardContent>
+          <Typography sx={{ fontSize:20, fontWeight: 700 }} >
+          {artwork.title}
+          </Typography>
 
-      
-     }}>
-      <CardMedia
-        sx={{ height: 250 }}
-        image={artwork.images[0].baseimageurl}
-        
-        
-      />
+          <Typography sx={{ fontSize:16}}>
+          Creditline: {artwork.creditline}
+          </Typography>
 
+          <Typography sx={{ fontSize:16/* , color:purple */ }}>
+          Accessionyear: {artwork.accessionyear}
+          </Typography>
+          
+          <Typography sx={{ fontSize:16/* , color:red  */}}>
+          Commentary: {artwork.commentary}
+          </Typography>
 
-      <CardContent>
-        <Typography sx={{ fontSize:20, fontWeight: 700 }} >
-        {artwork.title}
-        </Typography>
+          <Typography sx={{ fontSize:16/* , color:orange  */}}>
+          Classification: {artwork.classification}
+          </Typography>
 
-        <Typography sx={{ fontSize:16}}>
-        Creditline: {artwork.creditline}
-        </Typography>
+          <Typography sx={{ fontSize:16/* , color:orange  */}}>
+          Period: {artwork.period}
+          </Typography>
 
-        <Typography sx={{ fontSize:16/* , color:purple */ }}>
-        Accessionyear: {artwork.accessionyear}
-        </Typography>
-        
-        <Typography sx={{ fontSize:16/* , color:red  */}}>
-        Commentary: {artwork.commentary}
-        </Typography>
-
-        <Typography sx={{ fontSize:16/* , color:orange  */}}>
-        Classification: {artwork.classification}
-        </Typography>
-
-        <Typography sx={{ fontSize:16/* , color:orange  */}}>
-        Period: {artwork.period}
-        </Typography>
-
-
-      </CardContent>
-      <CardActions>
-        <Button size="medium" sx={{backgroundColor: "gray"}}variant="contained" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
-        <IconButton aria-label="add to favorites" onClick={() => {handleFavButton()}
-        }>
-          {favorites.includes(Number(id)) ? <Favorite/>: <FavoriteBorder/>}
-            
-        </IconButton>
-      </CardActions>
-    </Card>
-    </div>
+        </CardContent>
+        <CardActions>
+          <Button size="medium" sx={{backgroundColor: "gray"}}variant="contained" /* backgroundColor="blue" color="white" */ onClick= {() =>{navigate("/")}}>Return</Button>
+          <IconButton aria-label="add to favorites" onClick={() => {loggedIn ? handleFavButton(): setOpenLogin(true)}
+          }>
+            {favorites.includes(Number(id)) ? <Favorite/>: <FavoriteBorder/>}
+              
+          </IconButton>
+        </CardActions>
+      </Card>
+      </div>
+      <LoginDialog openLogin={openLogin} setOpenLogin={setOpenLogin} />
+    </>
   ):(
     <Box sx={{ display: 'center', justifyContent: 'center', alignItems: 'center' }}>
     <CircularProgress />

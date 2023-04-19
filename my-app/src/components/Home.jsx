@@ -10,25 +10,24 @@ function Home({favorites, setFavorites,openLogin,setOpenLogin,loggedIn}) {
   const [pageCount, setPageCount] = useState(4860);
   return (
     <>
-    <Layout>
-      <Box>
-      <Artworks page={page}   
-              setPage={setPage}
-              pageCount={pageCount} 
-              setPageCount={setPageCount}
-              favorites={favorites}
-              setFavorites={setFavorites}
-              openLogin={openLogin}
-              setOpenLogin={setOpenLogin}
-              loggedIn={loggedIn}
-              />
-      <Stack sx={{ display: 'center', justifyContent: 'center', alignItems: 'center' }} spacing={2}>
-            <Pagination count={pageCount} shape="rounded" onChange={(e,p)=>setPage(p)}/>
-          </Stack>
-
+      <Layout>
+        <Box>
+        <Artworks page={page}   
+                setPage={setPage}
+                pageCount={pageCount} 
+                setPageCount={setPageCount}
+                favorites={favorites}
+                setFavorites={setFavorites}
+                openLogin={openLogin}
+                setOpenLogin={setOpenLogin}
+                loggedIn={loggedIn}
+                />
+        <Stack sx={{ display: 'center', justifyContent: 'center', alignItems: 'center' }} spacing={2}>
+              <Pagination count={pageCount} shape="rounded" onChange={(e,p)=>setPage(p)}/>
+            </Stack>
+        </Box>
+      </Layout>
       <LoginDialog openLogin={openLogin} setOpenLogin={setOpenLogin} />
-      </Box>
-    </Layout>
     </>
     
   )
