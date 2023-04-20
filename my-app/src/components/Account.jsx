@@ -1,13 +1,12 @@
 import React from 'react'
 import Layout from './Layout'
-import app from "./../firebase"
 import { Button, Typography } from '@mui/material/'
 /* import {signInWithGoogle, handleSignOutButton} from "./../firebase" */
 import {GoogleButton} from "react-google-button"
 import {UserAuth} from "../context/AuthContext"
 
 
-function Login() {
+function Account() {
 
   const {googleSignIn, logOut, user} = UserAuth();
   
@@ -40,4 +39,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Account

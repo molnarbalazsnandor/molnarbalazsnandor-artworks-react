@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Favorites from "./components/Favorites";
-import Login from "./components/Login";
+import Account from "./components/Account";
 import ArtCard from "./components/ArtCard";
 import LoginDialog from "./components/LoginDialog";
 import { AuthContextProvider } from "./context/AuthContext";
@@ -52,9 +52,9 @@ function App() {
             }
           />
           <Route
-            path="/login"
+            path="/account"
             element={
-              <Login openLogin={openLogin} setOpenLogin={setOpenLogin} />
+              <Account openLogin={openLogin} setOpenLogin={setOpenLogin} />
             }
           />
           <Route
