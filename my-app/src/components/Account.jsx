@@ -32,9 +32,10 @@ function Account() {
     {user?.displayName? 
         <Typography sx={{ fontSize:20, fontWeight: 700 }} >
           Welcome, {user?.displayName}
+          <Button onClick={handleSignOut}>Sign out</Button> 
         </Typography> : "sign in"
     }
-    <Button onClick={handleSignOut}>Sign out</Button> 
+    
   </Layout>
   )
 }
