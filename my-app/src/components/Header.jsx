@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material/";
 import "./header.css";
 
@@ -12,9 +12,6 @@ function Header() {
     color: "black",
     fontSize: "16px",
     fontFamily: "Oxygen, sans-serif",
-    "&:hover": {
-      transform: "scale(1.1) !important",
-    },
   };
 
   return (

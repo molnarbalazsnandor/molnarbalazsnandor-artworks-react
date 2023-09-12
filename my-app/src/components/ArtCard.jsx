@@ -14,6 +14,8 @@ import {
 import { Favorite, FavoriteBorder } from "@mui/icons-material/";
 import "./DetailsCard.css";
 import { UserAuth } from "../context/AuthContext";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function ArtCard({ favorites, setFavorites, openLogin, setOpenLogin }) {
   let { id } = useParams();
@@ -44,6 +46,7 @@ function ArtCard({ favorites, setFavorites, openLogin, setOpenLogin }) {
 
   return artwork != 0 ? (
     <>
+      <Header />
       <div className="detailsCard">
         <Card
           sx={{
@@ -105,6 +108,7 @@ function ArtCard({ favorites, setFavorites, openLogin, setOpenLogin }) {
           </CardActions>
         </Card>
       </div>
+      <Footer />
     </>
   ) : (
     <Box
