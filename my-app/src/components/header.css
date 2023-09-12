@@ -5,9 +5,14 @@
     align-items: center;
     margin-left: 15px;
     margin-right: 25px;
+    margin-bottom: 7vh;
 }
 
 .HarvardArtLogo{
     width: 350px;
     height: auto;
 }
+
+.button:hover {
+    text-decoration: underline !important;
+  }
