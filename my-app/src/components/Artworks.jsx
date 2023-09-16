@@ -57,14 +57,6 @@ function Artworks({
               </InputAdornment>
             ),
           }}
-          sx={{
-            height: "4rem",
-            "&:focus": {
-              borderColor: "primary.main",
-              borderWidth: "100px",
-              borderStyle: "dashed",
-            },
-          }}
           value={filter}
           onChange={(event) => {
             setFilter(event.target.value);

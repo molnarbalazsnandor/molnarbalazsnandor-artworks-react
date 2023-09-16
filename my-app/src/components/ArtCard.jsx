@@ -50,11 +50,15 @@ function ArtCard({ favorites, setFavorites, openLogin, setOpenLogin }) {
       <div className="detailsCard">
         <Card
           sx={{
-            width: 600,
+            width: "600px",
           }}
         >
           <CardMedia
-            sx={{ height: 250 }}
+            className="card-media"
+            sx={{
+              width: "100%",
+              height: "60vh",
+            }}
             image={artwork.images[0].baseimageurl}
           />
           <CardContent>

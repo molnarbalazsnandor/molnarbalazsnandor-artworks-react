@@ -20,6 +20,14 @@ function Artwork({
 }) {
   const navigate = useNavigate();
   const { user, logOut } = UserAuth();
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleItemClick = () => {
+    setIsSelected(!isSelected);
+    setTimeout(() => {
+      navigate(`/art/${artData.id}`);
+    }, 700);
+  };
 
   /*   const [isFavorite, setIsFavorite] = useState(false)
   useEffect(function () {
@@ -38,8 +46,12 @@ function Artwork({
     <>
       <ImageListItem
         key={artData.primaryimageurl}
-        sx={{ position: "relative", margin: "8px" }}
-        onClick={() => navigate(`/art/${artData.id}`)}
+        sx={{
+          position: "relative",
+          margin: "8px",
+          border: isSelected ? "2px dashed black" : "none",
+        }}
+        onClick={handleItemClick}
       >
         <img
           src={`${artData.primaryimageurl}?w=164&h=164&fit=crop&auto=format&dpr=2 `}
@@ -73,10 +85,11 @@ function Artwork({
             position: "absolute",
             bottom: 0,
             right: 0,
-            marginRight: "8px", // Add margin for spacing
-            marginBottom: "8px", // Add margin for spacing
+            marginRight: "8px",
+            marginBottom: "8px",
           }}
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             user?.displayName ? handleFavButton() : setOpenLogin(true);
           }}
         >
