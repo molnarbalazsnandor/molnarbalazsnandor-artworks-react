@@ -1,12 +1,12 @@
 import React from "react";
-import { Box, CircularProgress, Button } from "@mui/material/";
+import { Box, Button } from "@mui/material/";
 import Layout from "./Layout";
 import Favorite from "./Favorite";
 
 function Favorites({ favorites, setFavorites }) {
   return (
     <Layout>
-      {favorites.length != 0 ? (
+      {favorites.length > 0 ? (
         <Box
           sx={{
             display: "flex",

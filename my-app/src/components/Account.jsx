@@ -12,7 +12,6 @@ import {
 import { GoogleButton } from "react-google-button";
 import { UserAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 function Account() {
   const { googleSignIn, logOut, user } = UserAuth();

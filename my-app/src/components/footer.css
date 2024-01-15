@@ -47,11 +47,11 @@ h4{
 }
 .last-line{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 }
 .tradeM{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-right: 40px;
     margin-top: 20px;
     color: gray;

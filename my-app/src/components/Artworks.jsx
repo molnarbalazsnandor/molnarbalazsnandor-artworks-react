@@ -32,7 +32,7 @@ function Artworks({
       setPageCount(json.info.pages);
     };
     fetchArts().catch(console.error);
-  }, [page, filter]);
+  }, [page, filter, apiSearch, setPageCount]);
 
   return (
     <div

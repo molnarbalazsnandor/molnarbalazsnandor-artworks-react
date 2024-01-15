@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Card,
   CardContent,
@@ -12,17 +12,17 @@ function Favorite({ favoriteID }) {
   const [artwork, setArtwork] = useState([]);
   const apiAddress = `https://api.harvardartmuseums.org/OBJECT/${favoriteID}?apikey=9fcbde6d-b1de-4546-8974-eef81e8f90f4`;
 
-  const fetchFavoriteArtwork = () => {
+  const fetchFavoriteArtwork = useCallback(() => {
     fetch(apiAddress)
       .then((res) => res.json())
       .then((data) => {
         setArtwork(data);
       });
-  };
+  }, [apiAddress, setArtwork]);
 
-  useEffect(() => fetchFavoriteArtwork(), []);
+  useEffect(() => fetchFavoriteArtwork(), [fetchFavoriteArtwork]);
 
-  return artwork != 0 ? (
+  return artwork.images?.length > 0 ? (
     <Card sx={{ width: "50vw", height: "auto", marginBottom: 8 }}>
       <CardMedia
         sx={{ height: 700 }}

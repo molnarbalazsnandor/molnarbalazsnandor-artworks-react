@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  Box,
-  ImageList,
-  ImageListItem,
-  Button,
-  ImageListItemBar,
-  IconButton,
-} from "@mui/material/";
+import React, { useState } from "react";
+import { ImageListItem, ImageListItemBar, IconButton } from "@mui/material/";
 import { Favorite, FavoriteBorder } from "@mui/icons-material/";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
@@ -19,7 +12,7 @@ function Artwork({
   setOpenLogin,
 }) {
   const navigate = useNavigate();
-  const { user, logOut } = UserAuth();
+  const { user } = UserAuth();
   const [isSelected, setIsSelected] = useState(false);
 
   const handleItemClick = () => {

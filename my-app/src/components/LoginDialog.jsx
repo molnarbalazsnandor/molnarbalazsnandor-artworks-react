@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Button,
   Dialog,
   DialogContent,
   DialogTitle,
   DialogContentText,
-  TextField,
   DialogActions,
-  CircularProgress,
 } from "@mui/material/";
-import { Link } from "react-router-dom";
 import { GoogleButton } from "react-google-button";
 import { UserAuth } from "../context/AuthContext";
 
 function LoginDialog({ openLogin, setOpenLogin }) {
-  const { googleSignIn, logOut, user } = UserAuth();
+  const { googleSignIn } = UserAuth();
 
   const handleGoogleSignIn = async () => {
     try {
@@ -23,14 +20,14 @@ function LoginDialog({ openLogin, setOpenLogin }) {
       console.log(error);
     }
   };
-
+  /* 
   const handleSignOut = async () => {
     try {
       await logOut();
     } catch (error) {
       console.log(error);
     }
-  };
+  }; */
   return (
     <div>
       <Dialog open={openLogin}>
